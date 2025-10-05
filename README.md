@@ -1,12 +1,4 @@
-# QLoRA-Tex
-
-Great! To convert that LATEX description into a GitHub README format, we'll use standard Markdown mixed with HTML tables for better structure and use code fences (```) for all LATEX or code snippets.
-
-Here is the complete README code, ready to be copied into a file named README.md:
-
-Markdown
-
-# 🚀 FormulaFast: Qwen-VL Adapter for Mathematical OCR
+# 🚀 QLoRA-Tex
 
 This project introduces **FormulaFast**, a highly specialized and resource-efficient solution for converting images of mathematical equations directly into accurate **LaTeX** code.
 
