@@ -1,56 +1,49 @@
 # QLoRA-Tex
 
-\documentclass{article}
-\usepackage[utf8]{inputenc}
-\usepackage{amsmath, amssymb}
-\usepackage{geometry}
-\usepackage{hyperref}
-\usepackage{fancyvrb} % For verbatim environment
+Great! To convert that LATEX description into a GitHub README format, we'll use standard Markdown mixed with HTML tables for better structure and use code fences (```) for all LATEX or code snippets.
 
-% Adjust margins for a cleaner look
-\geometry{a4paper, margin=1in}
-\linespread{1.2}
+Here is the complete README code, ready to be copied into a file named README.md:
 
-\title{FormulaFast: An Efficient Multimodal Adapter for Mathematical \texorpdfstring{$\LaTeX$}{} OCR}
-\author{Fine-Tuning Qwen2-VL-7B with \texorpdfstring{\textsuperscript{\text{unsloth}}}{}}
-\date{\today}
+Markdown
 
-\begin{document}
+# 🚀 FormulaFast: Qwen-VL Adapter for Mathematical OCR
 
-\maketitle
-\thispagestyle{empty}
+This project introduces **FormulaFast**, a highly specialized and resource-efficient solution for converting images of mathematical equations directly into accurate **LaTeX** code.
 
-\section*{Project Description: FormulaFast (Qwen-VL Math OCR Adapter)}
+It leverages the powerful **Qwen2-VL-7B-Instruct** Vision Language Model, fine-tuned using the optimized **Unsloth** QLoRA framework.
 
-This project details the development of a highly specialized, efficient \textbf{Mathematical OCR} (Optical Character Recognition) model, \texttt{FormulaFast}, based on the open-source \texttt{Qwen2-VL-7B-Instruct} Vision Language Model.
+---
 
-The core objective is to achieve near-perfect conversion of images containing complex mathematical equations directly into accurate \LaTeX\ source code.
+## 🎯 Project Goal: Image-to-LaTeX Code Generation
 
-\section*{Key Features and Technology}
+The core task is $\text{Mathematical OCR}$: extracting the precise structured $\LaTeX$ code from an image, aiming for high fidelity and low error rates.
 
-\begin{tabular}{|p{3cm}|p{8.5cm}|p{4cm}|}
-\hline
-\textbf{Feature} & \textbf{Description} & \textbf{Performance Goal} \\
-\hline
-\textbf{Specialized Task} & \textbf{Image-to-LaTeX Code Generation:} Fine-tuned to recognize mathematical structure, symbols, subscripts, and fractions, and output the precise \LaTeX\ string. & $\text{NED} < 0.05$ (Less than 5\% character error rate). \\
-\hline
-\textbf{Base Model} & \textbf{Qwen2-VL-7B-Instruct (Multimodal):} A powerful open-source model processing both image pixels and textual instructions. & Leverages strong pre-trained understanding. \\
-\hline
-\textbf{Efficiency Method} & \textbf{\textsuperscript{\text{unsloth}} QLoRA Adaptation:} Uses \texttt{unsloth} with QLoRA (\textbf{4-bit} quantization) for rapid and resource-efficient fine-tuning. & Minimal Memory Usage (T4 GPU), updating only $\sim 1\%$ of weights. \\
-\hline
-\textbf{Training Data} & \texttt{unsloth/Latex\_OCR} Dataset: Comprehensive dataset of mathematical images paired with correct \LaTeX\ representations. & Maximize accuracy on diverse equation styles. \\
-\hline
-\end{tabular}
+## ⚙️ Key Technology Stack
 
-\section*{Current Performance Snapshot}
+| Feature | Description | Benefit/Goal |
+| :--- | :--- | :--- |
+| **Base Model** | **Qwen2-VL-7B-Instruct** (Multimodal VLM) | Provides strong visual and linguistic foundation for complex formulas. |
+| **Fine-Tuning** | **Unsloth QLoRA (4-bit)** | Achieves **2x speed** and **70% less VRAM** usage, enabling training on a standard T4 GPU. |
+| **Adapter Size** | LoRA Rank $r=16$ | Only $\sim 1\%$ of model weights are updated for efficiency. |
+| **Dataset** | `unsloth/Latex_OCR` | Comprehensive training set for diverse equation styles. |
 
-Based on initial $50$-step training and evaluation on $100$ test samples:
+---
 
-\begin{itemize}
-    \item \textbf{Average Normalized Edit Distance (NED):} \textbf{0.1860}
-    \item \textbf{Average Character Accuracy:} \textbf{81.40\%}
-\end{itemize}
+## 📈 Initial Performance Metrics
 
-The initial training phase has successfully stabilized the model's core function. The next steps will focus on extending the training run to drastically lower the $\text{NED}$ toward the project goal of production-ready accuracy.
+These metrics were recorded after a brief, 50-step fine-tuning run on the training dataset and evaluated against 100 samples from the test set.
 
-\end{document}
+| Metric | Value | Interpretation |
+| :--- | :--- | :--- |
+| **Total Samples Evaluated** | 100 | The size of the held-out test set evaluated. |
+| **Average Normalized Edit Distance (NED)** | `0.1860` | The character-level error rate. The goal is closer to `0.00`. |
+| **Average Character Accuracy** | `81.40%` | $\mathbf{81.40\%}$ of generated characters/tokens match the ground truth. |
+
+***
+
+## 💻 Sample Inference and Code
+
+### Ground Truth $\LaTeX$ Example:
+
+```latex
+D _ { \mu } ^ { \alpha \beta } \bar { A } _ { \mu } ^ { \alpha \beta } = 0
