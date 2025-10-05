@@ -29,7 +29,7 @@ These metrics were recorded after a brief, 50-step fine-tuning run on the traini
 | :--- | :--- | :--- |
 | **Total Samples Evaluated** | 100 | The size of the held-out test set evaluated. |
 | **Average Normalized Edit Distance (NED)** | `0.1860` | The character-level error rate. The goal is closer to `0.00`. |
-| **Average Character Accuracy** | `81.40%` | $\mathbf{81.40\%}$ of generated characters/tokens match the ground truth. |
+| **Average Character Accuracy** | `79.033%` | $\mathbf{81.40\%}$ of generated characters/tokens match the ground truth. |
 
 ***
 
